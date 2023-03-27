@@ -1,9 +1,10 @@
 'use strict';
 
-import { isMail, validateMailPhone } from "../services/utils.js";
+import { isMail, validateMailPhone, padContactDetails } from "../services/utils.js";
 import otpComponent from "./otp.component.js";
 import backButtonComponent from "./nav/backButton.component.js";
 import LoginDetails from "../services/loginDetails.service.js";
+
 
 const loginComponent = {
   template: `
@@ -101,6 +102,7 @@ const loginComponent = {
           document.getElementById("title").innerHTML = "Enter OTP";
           document.getElementById("body").innerHTML = otpComponent.template;
           document.getElementById('back-button').style.display = 'block';
+          document.getElementById('padded-contact').innerText = await padContactDetails(contactEl.value);
           await otpComponent.setEvents();
           await backButtonComponent.setEvents();
           return

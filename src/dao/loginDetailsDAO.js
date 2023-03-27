@@ -58,7 +58,9 @@ class LoginDetailsDAO {
   static async updateLoginDetailsByID(id, data) {
     let timestamp = (new Date()).getTime();
     try {
-      await loginDetails.updateOne({ _id: ObjectId(id) }, { $set: { ...data, timestamp } })
+      await loginDetails.updateOne(
+        { _id: ObjectId(id) },
+        { $set: { ...data, timestamp } })
       return { info: `Login detail is successfully updated for id ${id}.` }
     } catch (e) {
       return { info: `Id is not found.` }

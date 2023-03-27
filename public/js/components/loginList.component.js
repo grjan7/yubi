@@ -2,6 +2,7 @@
 
 import updateLoginDetails from "../services/updateLoginDetails.service.js";
 import LoginDetails from "../services/loginDetails.service.js";
+import getLoginDetails from "../services/getLoginDetails.service.js";
 import { isMail, validateMailPhone } from "../services/utils.js";
 
 const loginListComponent = {
@@ -16,7 +17,7 @@ const loginListComponent = {
   }
   .deleteResult{
     border: 0px;
-    background-color: #a07070;
+    background-color: #a09090;
     color: white;
     border-radius: 5px;
     padding: 10px;
@@ -62,8 +63,6 @@ const loginListComponent = {
           let id = button.id;
           let _id = id.slice(id.indexOf('_') + 1);
           await LoginDetails.delete(_id);
-          //const loginListAfterDelete = await getLoginDetails();
-          //document.getElementById('body').innerHTML = loginListAfterDelete;
           await updateLoginDetails();
           return
         } catch (err) {

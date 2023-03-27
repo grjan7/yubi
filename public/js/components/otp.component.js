@@ -1,6 +1,6 @@
 'use strict';
 
-import { padContactDetails } from "../services/utils.js";
+
 import loginListComponent from "./loginList.component.js";
 import updateLoginDetails from "../services/updateLoginDetails.service.js";
 
@@ -8,7 +8,7 @@ const otpComponent = {
 
   template: `
   <div id="screen2">    
-    <p>We have sent a one time password (OTP) to ${padContactDetails("")}.</p>
+    <p>We have sent a one time password (OTP) to <span id="padded-contact"></span>.</p>
     <input type="text" id="OTP" placeholder="OTP" required>
     <p>Resend OTP in <span id="timer">00:15</span></p>
   </div>`,

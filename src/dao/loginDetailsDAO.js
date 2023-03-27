@@ -48,7 +48,7 @@ class LoginDetailsDAO {
       }
     ]
     try {
-      const results = await (await loginDetails.aggregate(aggregatePipeline)).toArray()
+      const results = await (await loginDetails.aggregate(aggregatePipeline)).toArray();
       return results
     } catch (e) {
       return e;
@@ -57,8 +57,6 @@ class LoginDetailsDAO {
 
   static async updateLoginDetailsByID(id, data) {
     let timestamp = (new Date()).getTime();
-    //let loginData = { ...data, timestamp }
-
     try {
       await loginDetails.updateOne({ _id: ObjectId(id) }, { $set: { ...data, timestamp } })
       return { info: `Login detail is successfully updated for id ${id}.` }

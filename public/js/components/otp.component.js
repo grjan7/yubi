@@ -2,7 +2,8 @@
 
 import { padContactDetails } from "../services/utils.js";
 import loginListComponent from "./loginList.component.js";
-import getLoginDetails from "../services/getLoginDetails.service.js";
+import updateLoginDetails from "../services/updateLoginDetails.service.js";
+
 const otpComponent = {
 
   template: `
@@ -32,9 +33,7 @@ const otpComponent = {
           document.getElementById('back-button').style.display = 'none';
           document.getElementById('title').innerHTML = "Mobile Numbers List";
           document.getElementById('body').innerHTML = loginListComponent.template;
-          const loginList = await getLoginDetails();
-          document.getElementById('body').innerHTML = loginList;
-          await loginListComponent.setEvents()
+          await updateLoginDetails();
         } else {
           alert('Please enter valid OTP.')
         }

@@ -31,6 +31,7 @@ class LoginDetailsController {
     try {
       const result = await loginDetailsDAO.updateLoginDetailsByID(id, data);
       res.send(result);
+
     } catch (e) {
       res.status(404).json({ Error: "Not Found." })
       return
